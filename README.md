@@ -2,7 +2,7 @@
 
 - Generate own icon at https://icon.kitchen/
 
-- <img src="Sources/capture/icon_kitchen.png" alt="Icon" width="240"/>
+<img src="Sources/capture/icon_kitchen.png" alt="Icon"/>
 
 - Copy all inside `Sources/IconKitchen-Output/android/res/` to `app/src/main/res/` (overwrite existing files)
 - Change `app/src/main/AndroidManifest.xml` to use the new icon, name is `hoang_ic_launcher`, default is `ic_launcher` and `ic_launcher_round`
