@@ -1,48 +1,85 @@
 package com.example.mvvm.ui.screen.home
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.mvvm.Screen
+import com.example.mvvm.components.topbar.HomeTopBar
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun HomeScreen(navController: NavHostController, hiltViewModel: HomeViewModel) {
+fun HomeScreen(
+    navController: NavHostController,
+    hiltViewModel: HomeViewModel = hiltViewModel()
+) {
     val state = hiltViewModel.uiState.collectAsState()
 
-    Column {
+    val listState = rememberLazyListState()
+    val isScrolled by remember {
+        derivedStateOf { listState.firstVisibleItemScrollOffset > 0 }
+    }
 
-        ElevatedButton(onClick = { navController.navigate(Screen.Detail.route) }) {
-            Text(text = "Go to Detail Screen")
+    Scaffold(
+        topBar = {
+            HomeTopBar(
+                navController = navController,
+                isScrolled = isScrolled,
+            )
         }
-        Text(text = state.value.test)
-        ElevatedButton(onClick = { hiltViewModel.updateTest("new string") }) {
-            Text(text = "Update value")
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            horizontalAlignment = Alignment.CenterHorizontally
+        )
+        {
+            ElevatedButton(onClick = { navController.navigate(Screen.Detail.route) }) {
+                Text(text = "Go to Detail Screen")
+            }
+            Text(text = state.value.test)
+            ElevatedButton(onClick = { hiltViewModel.updateTest("new string") }) {
+                Text(text = "Update value")
+            }
         }
     }
 }
 
+
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview
 @Composable
 fun HomeScreenPreview() {
     HomeScreen(
-        navController = NavHostController(LocalContext.current),
-        hiltViewModel = HomeViewModel(null, null)
+        navController = rememberNavController()
     )
 }
 
-@Preview
+@RequiresApi(Build.VERSION_CODES.O)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun HomeScreenPreviewWithText() {
     val viewModel = HomeViewModel(null, null)
     viewModel.updateTest("xyz")
     HomeScreen(
-        navController = NavHostController(LocalContext.current),
-        hiltViewModel = viewModel
+        navController = rememberNavController(),
     )
 }
