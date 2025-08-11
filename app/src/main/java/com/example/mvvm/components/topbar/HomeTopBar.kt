@@ -43,9 +43,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mvvm.R
 import com.example.mvvm.Screen
 import com.example.mvvm.sample.WeatherDisplay
+import com.example.mvvm.sample.WeatherViewModel
 import com.example.mvvm.ui.theme.Purple40
 import com.example.mvvm.utils.LanguageManager
-import com.example.mvvm.sample.WeatherViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)

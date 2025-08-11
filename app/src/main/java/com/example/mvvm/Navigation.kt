@@ -3,8 +3,11 @@ package com.example.mvvm
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -16,8 +19,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.mvvm.components.navigation.MainBottomNavigation
 import com.example.mvvm.preview.PlaceholderScreen
-import com.example.mvvm.ui.screen.cameras.CamerasScreen
 import com.example.mvvm.ui.screen.cameradetail.CameraDetailScreen
+import com.example.mvvm.ui.screen.cameras.CamerasScreen
 import com.example.mvvm.ui.screen.changelanguage.ChangeLanguageScreen
 import com.example.mvvm.ui.screen.favorites.FavoritesScreen
 import com.example.mvvm.ui.screen.settings.SettingsScreen

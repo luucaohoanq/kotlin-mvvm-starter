@@ -5,7 +5,6 @@ import com.example.mvvm.repositories.CameraRepositoryImpl
 import com.example.mvvm.repositories.MainLog
 import com.example.mvvm.repositories.MainLogImpl
 import com.example.mvvm.repositories.Store
-import com.example.mvvm.repositories.StoreImpl
 import com.example.mvvm.repositories.StoreImpl2
 import dagger.Binds
 import dagger.Module

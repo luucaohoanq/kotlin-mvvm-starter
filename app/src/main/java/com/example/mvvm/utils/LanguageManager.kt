@@ -6,8 +6,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
-import kotlin.let
-import kotlin.to
 
 object LanguageManager {
     private const val LANGUAGE_KEY = "selected_language"
