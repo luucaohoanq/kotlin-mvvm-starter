@@ -78,14 +78,3 @@ fun MessageInputPillPreview() {
         MessageInputPill()
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun BottomPreview() {
-    MaterialTheme {
-        Column() {
-            MessageInputPill()
-//            MainBottomBar()
-        }
-    }
-}

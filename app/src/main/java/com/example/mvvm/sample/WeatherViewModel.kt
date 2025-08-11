@@ -1,4 +1,4 @@
-package org.com.hcmurs.ui.components.weather
+package com.example.mvvm.sample
 
 import android.os.Build
 import android.util.Log
@@ -9,8 +9,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import com.example.mvvm.sample.WeatherRepository
-import com.example.mvvm.sample.WeatherResult
 import javax.inject.Inject
 
 @RequiresApi(Build.VERSION_CODES.O)

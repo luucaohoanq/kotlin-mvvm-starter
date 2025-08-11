@@ -2,7 +2,7 @@ package com.example.mvvm.di
 
 import android.content.Context
 import com.example.mvvm.apis.CurrencyApi
-import com.example.mvvm.sample.WeatherApi
+import com.example.mvvm.apis.WeatherApi
 import com.example.mvvm.sample.WeatherRepository
 import dagger.Module
 import dagger.Provides

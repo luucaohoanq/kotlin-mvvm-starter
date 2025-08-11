@@ -1,7 +1,133 @@
 package com.example.mvvm.utils
 
+import com.example.mvvm.models.Camera
+import com.example.mvvm.models.CameraType
+import com.example.mvvm.models.CurrencyWithSymbol
+
 object SampleData {
-
-
-
+    
+    val cameras = listOf(
+        Camera(
+            id = 1,
+            name = "Canon EOS R5",
+            type = CameraType.MIRRORLESS,
+            price = 3899.99,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400",
+            description = "Professional full-frame mirrorless camera with 45MP resolution, 8K video recording, and advanced autofocus system. Perfect for professional photography and videography.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 2,
+            name = "Sony A7 IV",
+            type = CameraType.MIRRORLESS,
+            price = 2499.99,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400",
+            description = "Versatile full-frame mirrorless camera with 33MP sensor, excellent low-light performance, and professional video capabilities. Ideal for hybrid shooters.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 3,
+            name = "Nikon D850",
+            type = CameraType.DSLR,
+            price = 2796.95,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1485988412941-77a35537dae4?w=400",
+            description = "High-resolution DSLR with 45.7MP sensor, exceptional dynamic range, and robust build quality. Perfect for landscape and studio photography.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 4,
+            name = "Fujifilm X-T5",
+            type = CameraType.MIRRORLESS,
+            price = 1699.95,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1519183071298-a2962feb14f4?w=400",
+            description = "Compact APS-C mirrorless camera with 40MP sensor, film simulation modes, and excellent image quality. Great for street and travel photography.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 5,
+            name = "GoPro Hero 12",
+            type = CameraType.ACTION,
+            price = 399.99,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400",
+            description = "Ultra-compact action camera with 5.3K video recording, advanced stabilization, and waterproof design. Perfect for adventure and sports photography.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 6,
+            name = "Leica Q2",
+            type = CameraType.COMPACT,
+            price = 4995.00,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=400",
+            description = "Premium compact camera with full-frame sensor, fixed 28mm lens, and exceptional build quality. The ultimate street photography companion.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 7,
+            name = "Polaroid Now+",
+            type = CameraType.INSTANT,
+            price = 149.99,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1548707297-417419b3e521?w=400",
+            description = "Modern instant camera with classic Polaroid charm, manual controls, and smartphone connectivity. Create instant memories with analog appeal.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 8,
+            name = "Canon EOS 5D Mark IV",
+            type = CameraType.FULL_FRAME,
+            price = 2199.99,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1617005082133-548c4dd27f35?w=400",
+            description = "Professional full-frame DSLR with 30.4MP sensor, dual pixel autofocus, and weather sealing. A reliable workhorse for professional photographers.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 9,
+            name = "Olympus OM-D E-M1 Mark III",
+            type = CameraType.MIRRORLESS,
+            price = 1499.99,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400",
+            description = "Micro Four Thirds mirrorless camera with 20.4MP sensor, excellent stabilization, and compact design. Perfect for travel and wildlife photography.",
+            isEnabled = true,
+            isVisible = true
+        ),
+        Camera(
+            id = 10,
+            name = "Pentax K-3 Mark III",
+            type = CameraType.DSLR,
+            price = 1999.95,
+            currencyWithSymbol = CurrencyWithSymbol.USD,
+            icon = "https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400",
+            description = "Weather-sealed APS-C DSLR with 25.7MP sensor, in-body stabilization, and rugged construction. Built for outdoor and adventure photography.",
+            isEnabled = true,
+            isVisible = true
+        )
+    )
+    
+    fun getCameraById(id: Int): Camera? {
+        return cameras.find { it.id == id }
+    }
+    
+    fun getCamerasByType(type: CameraType): List<Camera> {
+        return cameras.filter { it.type == type }
+    }
+    
+    fun getFeaturedCameras(): List<Camera> {
+        return cameras.take(6)
+    }
 }

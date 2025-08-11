@@ -52,13 +52,7 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         )
         {
-            ElevatedButton(onClick = { navController.navigate(Screen.Detail.route) }) {
-                Text(text = "Go to Detail Screen")
-            }
             Text(text = state.value.test)
-            ElevatedButton(onClick = { hiltViewModel.updateTest("new string") }) {
-                Text(text = "Update value")
-            }
         }
     }
 }

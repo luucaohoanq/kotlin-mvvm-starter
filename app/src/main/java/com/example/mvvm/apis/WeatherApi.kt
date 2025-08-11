@@ -1,4 +1,4 @@
-package com.example.mvvm.sample
+package com.example.mvvm.apis
 
 import retrofit2.http.GET
 import retrofit2.http.Query

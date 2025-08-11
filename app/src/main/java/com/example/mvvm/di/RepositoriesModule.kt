@@ -1,5 +1,7 @@
 package com.example.mvvm.di
 
+import com.example.mvvm.repositories.CameraRepository
+import com.example.mvvm.repositories.CameraRepositoryImpl
 import com.example.mvvm.repositories.MainLog
 import com.example.mvvm.repositories.MainLogImpl
 import com.example.mvvm.repositories.Store
@@ -21,5 +23,9 @@ abstract class RepositoriesModule {
     @Binds
     @Singleton
     abstract fun bindStore(store: StoreImpl2): Store
+    
+    @Binds
+    @Singleton
+    abstract fun bindCameraRepository(cameraRepository: CameraRepositoryImpl): CameraRepository
 
 }
