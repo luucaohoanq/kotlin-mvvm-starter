@@ -21,6 +21,7 @@ enum class CameraType {
     FULL_FRAME,
     COMPACT,
     INSTANT,
+    POINT_AND_SHOOT,
 }
 
 enum class CurrencyWithSymbol(val symbol: String) {

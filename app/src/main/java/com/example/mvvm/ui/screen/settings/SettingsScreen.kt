@@ -14,16 +14,21 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Help
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.PrivacyTip
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -32,6 +37,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -43,89 +49,85 @@ fun SettingsScreen(
     onLanguageClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Column(
-        modifier = modifier.fillMaxSize()
-    ) {
-        // Header
-        Surface(
-            modifier = Modifier.fillMaxWidth(),
-            color = MaterialTheme.colorScheme.surface,
-            shadowElevation = 4.dp,
-        ) {
-            Column(
-                modifier = Modifier.padding(16.dp)
-            ) {
-                Text(
-                    text = "Settings",
-                    style = MaterialTheme.typography.headlineMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Text(
-                    text = "Customize your app experience",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
-                )
-            }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "Settings",
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                },
+            )
+
         }
-
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) { paddingValues ->
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(paddingValues)
         ) {
-            item {
-                SettingsSection(title = "General")
-            }
+            LazyColumn(
+                modifier = Modifier.fillMaxSize(),
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                item {
+                    SettingsSection(title = "General")
+                }
 
-            item {
-                SettingsItem(
-                    icon = Icons.Default.Language,
-                    title = "Language",
-                    subtitle = "Change app language",
-                    onClick = onLanguageClick
-                )
-            }
+                item {
+                    SettingsItem(
+                        icon = Icons.Default.Language,
+                        title = "Language",
+                        subtitle = "Change app language",
+                        onClick = onLanguageClick
+                    )
+                }
 
-            item {
-                SettingsItem(
-                    icon = Icons.Default.Notifications,
-                    title = "Notifications",
-                    subtitle = "Manage notification preferences",
-                    onClick = { /* TODO */ }
-                )
-            }
+                item {
+                    SettingsItem(
+                        icon = Icons.Default.Notifications,
+                        title = "Notifications",
+                        subtitle = "Manage notification preferences",
+                        onClick = { /* TODO */ }
+                    )
+                }
 
-            item {
-                Spacer(modifier = Modifier.height(16.dp))
-                SettingsSection(title = "About")
-            }
+                item {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SettingsSection(title = "About")
+                }
 
-            item {
-                SettingsItem(
-                    icon = Icons.Default.Info,
-                    title = "App Version",
-                    subtitle = "1.0.0",
-                    onClick = { /* TODO */ }
-                )
-            }
+                item {
+                    SettingsItem(
+                        icon = Icons.Default.Info,
+                        title = "App Version",
+                        subtitle = "1.0.0",
+                        onClick = { /* TODO */ }
+                    )
+                }
 
-            item {
-                SettingsItem(
-                    icon = Icons.Default.Help,
-                    title = "Help & Support",
-                    subtitle = "Get help and contact support",
-                    onClick = { /* TODO */ }
-                )
-            }
+                item {
+                    SettingsItem(
+                        icon = Icons.Default.Help,
+                        title = "Help & Support",
+                        subtitle = "Get help and contact support",
+                        onClick = { /* TODO */ }
+                    )
+                }
 
-            item {
-                SettingsItem(
-                    icon = Icons.Default.PrivacyTip,
-                    title = "Privacy Policy",
-                    subtitle = "Read our privacy policy",
-                    onClick = { /* TODO */ }
-                )
+                item {
+                    SettingsItem(
+                        icon = Icons.Default.PrivacyTip,
+                        title = "Privacy Policy",
+                        subtitle = "Read our privacy policy",
+                        onClick = { /* TODO */ }
+                    )
+                }
             }
         }
     }
